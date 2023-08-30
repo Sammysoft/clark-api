@@ -9,7 +9,7 @@ let isError = function (e) {
 export const authMiddlewareService = async (header, res) => {
   if (!header || header === "")
     return errorMessage(400, "No token provided")(res);
-  header = header.replace("Bearer ", "");
+  // header = header.replace("Bearer ", "");
 
   let jwtVerifier = await jwtVerifyService(header);
 

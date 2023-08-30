@@ -1,6 +1,6 @@
-import { errorMessage, successMessage } from "../../Helpers/utils";
-import { addProductService } from "../../Services/product.service";
-import { isRequired } from "../../Helpers/required";
+import { errorMessage, successMessage } from "../../Helpers/utils.js";
+import { addProductService } from "../../Services/product.service.js";
+import { isRequired } from "../../Helpers/required.js";
 
 export const createProductRequiredController = async (req, res, next) => {
   const data = {

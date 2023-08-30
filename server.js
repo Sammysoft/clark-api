@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import UserRoutes from "./Routes/Users/user.routes.js";
+import ProductRoutes from "./Routes/Product/product.routes.js";
 import AuthenticateRoute from "./Routes/Auth/authenticate.routes.js";
 import connectDB from "./Config/db.js";
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 
 app.use("/api/user", UserRoutes);
+app.use("/api/product", ProductRoutes);
 app.use("/api", AuthenticateRoute);
 app.listen(port, () => {
   connectDB();
