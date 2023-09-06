@@ -1,13 +1,14 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 const productSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  price: { type: Number, required: true },
-  category: { type: mongoose.Schema.ObjectId, ref: "Category" },
+  details: { type: String, default: "" },
+  taxIncludedPrice: { type: Number, default: 0 },
+  taxExcludedPrice: { type: Number, default: 0 },
+  category: { type: String, default: "" },
   title: { type: String, default: "" },
   description: { type: String },
-  product_img: { type: String },
   product_gallery: [{ type: String }],
+  user: { type: mongoose.Schema.ObjectId, ref: "User" },
 });
 
 export const Product = mongoose.model("Product", productSchema);

@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema(
     email: { type: String, required: true },
     is_admin: { type: Boolean, default: false },
     profile_img: { type: String, dafault: "" },
+    poducts: [{ type: mongoose.Schema.ObjectId, ref: "Product" }],
   },
   { timestamps: true }
 );

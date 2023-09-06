@@ -11,9 +11,9 @@ import { jwtService, jwtVerifyService } from "../../Services/auth.service.js";
 
 export const registerRequiredController = (req, res, next) => {
   const data = {
-    email: req?.body?.email,
-    password: req?.body?.password,
-    full_name: req?.body?.full_name,
+    email: req.body.email,
+    password: req.body.password,
+    full_name: req.body.full_name,
   };
 
   if (!isRequired(data, res)) return;
@@ -80,9 +80,9 @@ export const authLoginController = async (req, res, next) => {
   let id = user;
 
   const token = jwtService({
-    id: id?._id,
-    email: id?.email,
-    is_admin: id?.is_admin
+    id: id._id,
+    email: id.email,
+    is_admin: id.is_admin
   });
   return successMessage(200, "Logged in", { token })(res);
 };
