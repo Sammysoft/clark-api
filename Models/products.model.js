@@ -7,7 +7,7 @@ const productSchema = mongoose.Schema({
   category: { type: String, default: "" },
   title: { type: String, default: "" },
   description: { type: String },
-  product_gallery: [{ type: String }],
+  product_gallery: [],
   user: { type: mongoose.Schema.ObjectId, ref: "User" },
 });
 

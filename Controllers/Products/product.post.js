@@ -43,9 +43,9 @@ export const createProductController = async (req, res, next) => {
   const product = await addProductService(data, res);
   if (product) {
     const userProduct = await updateUserProductsController(userID, product._id);
-    if (userProduct) return successMessage(200, "Product Created", userProduct);
+    if (userProduct) return successMessage(200, "Product Created", userProduct)(res);
     if (!userProduct)
-      return errorMessage(400, "Error in creating Product", null);
+      return errorMessage(400, "Error in creating Product", null)(res);
   }
-  if (!product) return errorMessage(400, "Error creatig product", null);
+  if (!product) return errorMessage(400, "Error creating product", null)(res)
 };

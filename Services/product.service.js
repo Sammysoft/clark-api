@@ -1,13 +1,13 @@
 import { Product } from "../Models/products.model.js";
 import { errorMessage } from "../Helpers/utils.js";
 
-export const addProductService = async (data) => {
+export const addProductService = async (data, res) => {
   try {
-    const product = await new Product();
-    product = await product.save(data);
-    
+    let product = await new Product(data);
+    product = await product.save();
     return product;
   } catch (error) {
-    return errorMessage(400, "Oops could not create product", null);
+    console.log(error)
+    return errorMessage(401, "Oops could not create product", null)(res);
   }
 };
